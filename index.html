@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+	<title>Cars</title>
+	
+	<style>
+   body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 320px;
+  height: 210px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-image: url(https://www.splitshire.com/wp-content/uploads/2015/03/SplitShire-8098-1800x1200.jpg);
+  background-size:500px;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 8px
+}
+
+}
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 24%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+		
+		body {font-family: Arial, Helvetica, sans-serif;}
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+		body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: RoyalBlue;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+		.btn {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  font-size: 11px;
+  cursor: pointer;
+}
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+		h1{
+		color: #000000;
+		font-size: 100px;
+		font-family: serif;
+		font-style: italic;
+		text-align: center;
+
+	}	
+		
+
+		body{
+      background-image: url("https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background height: auto;
+  background width: auto;
+  background-color: white;
+}
+
+
+
+		}
+	h1{
+		color: #000000;
+		font-size: 100px;
+		font-family: serif;
+		font-style: italic;
+		text-align: center;
+
+	}	
+	p{
+		color: #000000;
+		font-size: 25px;
+		font-family: 'Oswald', sans-serif;
+		text-align: center;
+
+	}
+	h3{
+		text-align: center;
+	}
+  h2{
+    color: #bdbdbd;
+    font-size: 20px;
+  }
+ h4{
+  color: #bdbdbd;
+    font-size: 12px;
+    max-height: 2%;
+
+ }
+ h5{
+    color: #000000;
+    font-size: 40px;
+    font-family: serif;
+    font-style: oblique;
+    text-align: center;
+   ;
+  }
+  h6{
+  color: #e3e1e1;
+    font-size: 20px;
+    
+
+ }
+	
+  .button {
+  border-radius: 4px;
+  background-color: #000000;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 11px;
+  padding: 8px 12px;
+  
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 12px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.footer {
+   position: no-fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #5c5a52;
+   color: white;
+   text-align: center;
+   border-radius: 5px;
+}
+
+
+	</style>
+</head>
+<body>
+	<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="#">Gallery</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Menu</button> 
+  
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+	
+  
+
+	
+<h1 style="margin-top: 0", style="margin-bottom:0";>
+	Gran Turismo Racer
+</h1>
+<p style="margin-top: 0";>
+	Nissan's most powerful car the Skyline GT-R. And ironically was not first created by Nissan but by Prince Motor Company. And sometime after Nissan merged with Prince Motor that they further developed the car and gave it its GT-R status. The R32 to R34 series as most people associate the name "Skyline GT-R" to.
+</p>
+<h3>
+<img id="myImg" src="https://images.unsplash.com/photo-1562141959-f3be4985c59a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Porsche 924 Carrera GTR" style="width:100%;max-width:300px">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+</h3>
+</div>
+<h5 style="margin-bottom:0";>
+  Mercedes-Benz AMG GT, Mercedes GP/Mercedes-AMG Petronas  "Silver Arrows"</h5>
+  <h6>
+    Silver Arrows was the name given by the press to Germany's dominant Mercedes-Benz and Auto Union Grand Prix motor racing cars between 1934 and 1939. The name was later applied to the Mercedes-Benz Formula One and sports cars in 1954 and 1955, and currently applied to the Mercedes GP/AMG Petronas Motorsport cars from 2010 to present.
+
+For decades until the introduction of sponsorship liveries, each country had its traditional colour in automobile racing. German race cars for their Silver Arrows silver, Italian for their Rosso Corsa red, British ones are British racing green green, French Bleu de France blue, etc.
+
+German cars like the Blitzen Benz were white, as were the three Mercedes that won the 1914 French Grand Prix 1-2-3. On the other hand, Mercedes won the Italian Targa Florio with cars painted red in 1922 (Giulio Masetti) and 1924 (Christian Werner).
+</h6>
+<div class="row">
+  <div class="column">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://c4.wallpaperflare.com/wallpaper/29/1013/318/black-car-car-mercedes-benz-mercedes-wallpaper-preview.jpg" alt="Mercedes Benz AGM GTR" style="width:320px;height:210px; border-radius: 8px;">
+    </div>
+    <div class="flip-card-back">
+      <h2>Mercedes Benz AGM GTR</h2> 
+      <h4>Engine Type: 
+M178 Twin-Turbocharged V8
+</h4> 
+      <h4>Fuel Type: 
+Petrol</h4>
+<h4>Max Power: (bhp@rpm)
+577 bhp @ 6250 rpm
+
+</h4>
+ <h4>
+   Max Torque:  (Nm@rpm)
+700 Nm @ 2100 rpm
+
+ </h4>
+ <h4>
+   Gear Box:  7-Speed DCT dual-clutch
+ </h4> 
+ <h4>
+   No Of Cylinders:  8
+ </h4>
+ <h4>
+   Top Speed (KMPH):  318
+ </h4>  </div>
+  </div>
+</div>
+</div>
+<div class="column">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://wallpapercave.com/wp/wp2127115.jpg" alt="Mercedes AMG F1 W09 EQ Power+" style="width:320px;height:210px; border-radius: 8px;">
+    </div>
+    <div class="flip-card-back">
+      <h2>Mercedes AMG F1 W09 EQ Power+</h2> 
+      <h4>Engine Type: 
+ V6 turbocharged engine</h4>  
+      <h4>Fuel Type: 
+  Petronas Primax</h4>
+<h4>Max Power:  950–1,000 horsepower (710–750 kW)
+</h4>
+ <h4>
+   
+Electric motor:  Motor Generator Unit–Kinetic(MGU-K),
+ </h4>
+ </h4>
+ <h4>
+  Battery: Mercedes lithium-ion battery solution 
+ </h4>
+ <h4>
+   Top Speed (KMPH):  400
+ </h4> 
+    </div>
+  </div>
+</div>
+</div><div class="column">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://c4.wallpaperflare.com/wallpaper/949/763/785/video-games-cars-xbox-360-forza-motorsport-4-sauber-c9-1989-mercedes-benz-video-games-xbox-hd-art-wallpaper-preview.jpg" alt="Sauber c9" style="width:320px;height:210px; border-radius: 8px;">
+    </div>
+    <div class="flip-card-back">
+      <h2>Sauber C9
+</h2> 
+      <h4>Engine Type: 
+Mercedes-Benz M119 4,973 cc  V8
+</h4> 
+      <h4>Fuel Type: 
+Bosch Motronic MP 2.7 Fuel Injection</h4>
+<h4>Power: 720 bhp / 537 kW @ 7,000 rpm
+
+</h4>
+ <h4>
+   Torque: 810 Nm / 597 ft lbs @ 3,500 rpm 
+
+ </h4> 
+ <h4>
+   Bore / Stroke: 96.5 mm (3.8 in) / 85.0 mm (3.3 in)
+ </h4> 
+ <h4>
+   Top Speed: 370kmph(230mph)
+ </h4> </div>
+  </div>
+</div>
+</div><div class="column">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://cdn.motor1.com/images/mgl/EOQmR/s1/2015-5939782016-mercedes-amg-c-class-coupe-dtm1.jpg" style="width:320px;height:210px; border-radius: 8px;">
+    </div>
+    <div class="flip-card-back">
+      <h2>
+        Mercedes-Benz AMG C63 
+      </h2> 
+      <h4>Engine Type: 
+Mercedes-Benz AMG 4.0 L (244 cu in) V8
+</h4> 
+      <h4>Fuel Type: 
+Aral Ultimate unleaded 102 RON gasoline</h4>
+<h4>clutch:   ZF 4-plate carbon fibre reinforced plastic clutch
+</h4>
+ <h4>
+   Power: 460 hp later over 500 hp 
+ </h4>
+ <h4>
+   Top speed: 180mph
+ </h4>   </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="footer">
+	 Copyright &#169; | 2020GTR. All Rights Reserved | 
+	 <button class="button" style="width: 90px"; , onclick="location.href='Terms of use.html'", type="button", target="_blank"><span>Terms of use </span></button>| 
+	 <button class="button" style="width: 95px";, onclick="location.href='Privacy Policy.html'", type="button", target="_blank"><span>Privacy Policy </span></button>| 
+	 <button class="button" style="width: 60px"; , onclick="location.href='License.html'", type="button", target="_blank"><span>License </span></button> |<button class="button" style="width: 60px"; , onclick="location.href='form.html'", type="button", target="_blank"><span>E-mail </span></button>
+</div>
+</body>
+</html>
